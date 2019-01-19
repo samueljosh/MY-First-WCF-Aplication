@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
+using System.ServiceModel.Web;
 namespace MY_First_WCF_Aplicatiob.Service
 {
     // OBSERVAÇÃO: Você pode usar o comando "Renomear" no menu "Refatorar" para alterar o nome da interface "IService1" no arquivo de código e configuração ao mesmo tempo.
@@ -13,7 +13,7 @@ namespace MY_First_WCF_Aplicatiob.Service
     {
 
         [OperationContract]
-        [WebInvoke(MethodAccessException="get")]
-        void DoWork();
+        [WebInvoke(Method="GET",ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare, UriTemplate ="DoWork")]
+        String DoWork();
     }
 }
